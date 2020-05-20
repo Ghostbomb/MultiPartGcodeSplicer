@@ -89,12 +89,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
         if (dialog.runModal() == NSApplication.ModalResponse.OK) {
 //            let result = dialog.directoryURL // Pathname of the folder
-            let result = dialog.url // Pathname of the folder
+            let result = dialog.url // Pathname of the file
             
             if (result != nil) {
                 let path = result!.path
                 filename_output.stringValue = path
-//                let firstGcodePath = path
             }
         } else {
             // User clicked on "Cancel"
@@ -123,11 +122,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 outputFile += repeatGcodeContent
                 i+=1
             }
-
-
-            
-
-
             FileManager.default.createFile(atPath: outputfilePath, contents: nil, attributes: nil)
             
         try outputFile.write(to: outputfileUrl, atomically: true, encoding: .utf8)
