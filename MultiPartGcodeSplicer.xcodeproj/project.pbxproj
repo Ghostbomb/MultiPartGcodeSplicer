@@ -12,6 +12,7 @@
 		3E425AAC2474EB29004E86DC /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E425AAA2474EB29004E86DC /* MainMenu.xib */; };
 		3E425AB82474EB29004E86DC /* MultiPartGcodeSplicerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E425AB72474EB29004E86DC /* MultiPartGcodeSplicerTests.swift */; };
 		3E425AC32474EB29004E86DC /* MultiPartGcodeSplicerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E425AC22474EB29004E86DC /* MultiPartGcodeSplicerUITests.swift */; };
+		3E425AD12474F3E3004E86DC /* filemanager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E425AD02474F3E3004E86DC /* filemanager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		3E425ABE2474EB29004E86DC /* MultiPartGcodeSplicerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MultiPartGcodeSplicerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E425AC22474EB29004E86DC /* MultiPartGcodeSplicerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiPartGcodeSplicerUITests.swift; sourceTree = "<group>"; };
 		3E425AC42474EB29004E86DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3E425AD02474F3E3004E86DC /* filemanager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = filemanager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 				3E425AA62474EB27004E86DC /* AppDelegate.swift */,
 				3E425AA82474EB29004E86DC /* Assets.xcassets */,
 				3E425AAA2474EB29004E86DC /* MainMenu.xib */,
+				3E425AD02474F3E3004E86DC /* filemanager.swift */,
 				3E425AAD2474EB29004E86DC /* Info.plist */,
 				3E425AAE2474EB29004E86DC /* MultiPartGcodeSplicer.entitlements */,
 			);
@@ -252,6 +255,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3E425AA72474EB27004E86DC /* AppDelegate.swift in Sources */,
+				3E425AD12474F3E3004E86DC /* filemanager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
