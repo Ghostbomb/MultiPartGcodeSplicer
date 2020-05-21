@@ -21,6 +21,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
     }
+    
     @IBOutlet weak var filename_first: NSTextField!
     @IBOutlet weak var filename_repeat: NSTextField!
     @IBOutlet weak var filename_output: NSTextField!
@@ -41,11 +42,18 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
         if (dialog.runModal() == NSApplication.ModalResponse.OK) {
             let result = dialog.url // Pathname of the file
-            
+//            let urlwithext = Bundle.main.url(forResource: "soundfile.ext", withExtension: "")
+//            urlwithext?.deletingPathExtension().lastPathComponent
+//            let string = URL(fileURLWithPath: dialog.url) //path with file name
+
             if (result != nil) {
                 let path = result!.path
                 filename_first.stringValue = path
             }
+
+//            filename_output_name.stringValue = ((urlwithext?.absoluteString ?? urlwithext?.absoluteString) as NSString).lastPathComponent
+//            filename_output_name.stringValue = urlwithext
+
         } else {
             // User clicked on "Cancel"
             return
@@ -125,11 +133,25 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             FileManager.default.createFile(atPath: outputfilePath, contents: nil, attributes: nil)
             
         try outputFile.write(to: outputfileUrl, atomically: true, encoding: .utf8)
+
+//            let alert = NSAlert()
+//            alert.messageText = "Completed Succsefully"
+//            alert.beginSheetModal(for: window, completionHandler: nil)
+//            alert.runModal()
             
-            print(outputfilePath)
             
+        
+              
         //Read and Write File
-        } catch {print("ERROR")}
+        } catch {
+            print("ERROR")
+//            let alert = NSAlert()
+//            alert.messageText = "Error"
+//            alert.beginSheetModal(for: window, completionHandler: nil)
+//            alert.addButton(withTitle: "OK")
+//            alert.runModal()
+            
+        }
         sender.isEnabled = true
     }
     
