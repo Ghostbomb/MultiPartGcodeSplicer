@@ -108,40 +108,65 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             return
         }
     }
+    var stateofMultiExport = 1
+    @IBAction func toggleMultiExport(sender: NSButton) {
+        stateofMultiExport = sender.state.rawValue
+    }
     
-    
-    
+
     @IBAction func splice_gcode(_ sender: NSButton) {
         sender.isEnabled = false
         let firstfilePath = URL(fileURLWithPath: filename_first.stringValue) //path with file name
         let repeatfilePath = URL(fileURLWithPath: filename_repeat.stringValue) //path with file name
-        let outputfilePath = filename_output.stringValue + "/" + filename_output_name.stringValue + ".gcode" //path with file name
-        let outputfileUrl = URL(fileURLWithPath: outputfilePath) //path with directory
-        print(outputfilePath)
         
         
         do{
-        let firstGcodeContent = try String(contentsOf: firstfilePath, encoding: .utf8)
-        let repeatGcodeContent = try String(contentsOf: repeatfilePath, encoding: .utf8)
             
-            var outputFile = firstGcodeContent
-            var i=0
-            while i<Int(x_multipart.intValue)-1 {
-                outputFile += repeatGcodeContent
-                i+=1
+            let firstGcodeContent = try String(contentsOf: firstfilePath, encoding: .utf8)
+            let repeatGcodeContent = try String(contentsOf: repeatfilePath, encoding: .utf8)
+            
+            if(stateofMultiExport==0){
+                let outputfilePath = filename_output.stringValue + "/" + filename_output_name.stringValue + "x" + String(x_multipart.intValue) + ".gcode" //path with file name and number of parts to print
+                let outputfileUrl = URL(fileURLWithPath: outputfilePath) //path with directory
+                print(outputfilePath)
+                
+                var outputFile = firstGcodeContent
+                var i=0
+                    
+                while i<Int(x_multipart.intValue)-1 { //loop of copy and pastes
+                        outputFile += repeatGcodeContent
+                        i+=1
+                    }
+                FileManager.default.createFile(atPath: outputfilePath, contents: nil, attributes: nil)
+                    
+                try outputFile.write(to: outputfileUrl, atomically: true, encoding: .utf8)
             }
-            FileManager.default.createFile(atPath: outputfilePath, contents: nil, attributes: nil)
+            else if(stateofMultiExport==1){
+                var m=1
+                while m<Int(x_multipart.intValue)+1{
+                    var outputFile = String("")
+                    outputFile = firstGcodeContent
+                    let outputfilePath = filename_output.stringValue + "/" + filename_output_name.stringValue + "x" + String(m) + ".gcode" //path with file name and number of parts to print
+                    let outputfileUrl = URL(fileURLWithPath: outputfilePath) //path with directory
+                    print(outputfilePath)
+                    var i=0
+                    while i<m-1 { //loop of copy and pastes
+                            outputFile += repeatGcodeContent
+                            i+=1
+                        }
+                    FileManager.default.createFile(atPath: outputfilePath, contents: nil, attributes: nil)
+                        
+                    try outputFile.write(to: outputfileUrl, atomically: true, encoding: .utf8)
+                    m+=1
+                }
+            }
             
-        try outputFile.write(to: outputfileUrl, atomically: true, encoding: .utf8)
 
 //            let alert = NSAlert()
 //            alert.messageText = "Completed Succsefully"
 //            alert.beginSheetModal(for: window, completionHandler: nil)
 //            alert.runModal()
             
-            
-        
-              
         //Read and Write File
         } catch {
             print("ERROR")
@@ -153,7 +178,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             
         }
         sender.isEnabled = true
-    }
+    }//end splice_gcode
     
     
 }

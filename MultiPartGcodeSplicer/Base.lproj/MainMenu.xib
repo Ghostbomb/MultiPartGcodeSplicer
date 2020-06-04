@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="16096" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="16097" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16096"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16097"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -730,7 +730,7 @@
                         <rect key="frame" x="153" y="209" width="315" height="14"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Select the Exported Gcode file with intro line printing" id="hZk-BW-ZjW">
-                            <font key="font" metaFont="message" size="11"/>
+                            <font key="font" metaFont="label" size="11"/>
                             <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
@@ -771,7 +771,7 @@
                         <rect key="frame" x="90" y="153" width="441" height="28"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" alignment="center" title="Select the Exported Gcode file that will repeat multiple times. Recommened not print the intro line." id="YvJ-AD-feR">
-                            <font key="font" metaFont="message" size="11"/>
+                            <font key="font" metaFont="label" size="11"/>
                             <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
@@ -812,7 +812,7 @@
                         <rect key="frame" x="87" y="103" width="432" height="14"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Select where to export the final Multipart Gcode" id="gho-Fj-EjQ">
-                            <font key="font" metaFont="message" size="11"/>
+                            <font key="font" metaFont="label" size="11"/>
                             <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
@@ -858,7 +858,7 @@
                         <rect key="frame" x="103" y="31" width="121" height="42"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" alignment="center" title="Total number of parts desired to print" id="7Q6-3n-c86">
-                            <font key="font" metaFont="message" size="11"/>
+                            <font key="font" metaFont="label" size="11"/>
                             <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
@@ -867,7 +867,7 @@
                         <rect key="frame" x="421" y="31" width="194" height="42"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" alignment="center" title="Type the desired filename of output file. No need to add .gcode to the end" id="GdN-3H-zWL">
-                            <font key="font" metaFont="message" size="11"/>
+                            <font key="font" metaFont="label" size="11"/>
                             <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
@@ -881,6 +881,17 @@
                         </buttonCell>
                         <connections>
                             <action selector="splice_gcode:" target="Voe-Tx-rLC" id="HeM-GY-DXB"/>
+                        </connections>
+                    </button>
+                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YV2-yT-0xD">
+                        <rect key="frame" x="264" y="36" width="106" height="18"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="check" title="# to 1 Exports" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="4cg-85-iKG">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" metaFont="message"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="toggleMultiExportWithSender:" target="Voe-Tx-rLC" id="n11-3U-8Rr"/>
                         </connections>
                     </button>
                 </subviews>
